@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : MonoBehaviour   // INHERITANCE
 {
     protected Transform hinge;
     public bool isClosed { get; protected set; }

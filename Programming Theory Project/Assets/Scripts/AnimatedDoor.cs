@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimatedDoor : Door
+    public class AnimatedDoor : Door    // INHERITANCE
 {
 
     private float m_speed = 5.0f;
     private Quaternion targetRotation;
 
 
-    protected override void Start()
+    protected override void Start()     // POLYMORPHISM
     {
         base.Start();
         targetRotation = hinge.transform.rotation;
     }
 
-    protected override void Update()
+    protected override void Update()    // POLYMORPHISM
     {
         hinge.transform.rotation = Quaternion.Lerp(hinge.transform.rotation, targetRotation, m_speed * Time.deltaTime);
 
     }
 
-    public override void Open()
+    public override void Open()     // POLYMORPHISM
     {
         if (isClosed)
         {
@@ -40,7 +40,7 @@ public class AnimatedDoor : Door
         }
     }
 
-    public override void Close()
+    public override void Close()        // POLYMORPHISM
     {
         if (!isClosed)
         {
@@ -59,7 +59,7 @@ public class AnimatedDoor : Door
         }
     }
 
-    public void Flip(float speed)
+    public void Flip(float speed)   // ABSTRACTION
     {
         m_speed = speed;
         base.Flip();

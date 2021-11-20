@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SecurityDoor : Door
+public class SecurityDoor : Door    // INHERITANCE
 {
     public bool isLocked { get; protected set; }
     private string m_key;
 
-    protected override void Start()
+    protected override void Start()     // POLYMORPHISM
     {
         base.Start();
-        LockOn("1234");
+        LockOn("1234");     // ABSTRACTION
     }
 
 
-    public void LockOn(string key)
+    public void LockOn(string key)  // ENCAPSULATION
     {
         m_key = key;
         isLocked = true;
     }
 
-    public void UnLock(string key)
+    public void UnLock(string key)  // ENCAPSULATION
     {
         if (m_key.Equals(key))
         {
@@ -29,11 +29,11 @@ public class SecurityDoor : Door
         }
     }
 
-    public override void Open()
+    public override void Open()     // POLYMORPHISM
     {
         if (!isLocked && isClosed)
         {
-            base.Open();
+            base.Open();        // ABSTRACTION
         }
         else
         {
@@ -41,7 +41,7 @@ public class SecurityDoor : Door
         }
     }
 
-    public void Open(string key)
+    public void Open(string key)    // ABSTRACTION
     {
         UnLock(key);
         Open();
